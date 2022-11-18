@@ -73,7 +73,7 @@ All monthly overview plots are shown for each window in a different color, accor
 * median of calibration shift (with monthly median ±3 std ranges)
 * median of rms (with monthly median ±3 std ranges)
 * median of wavelength_shift (with monthly median ±3 std ranges)
-* median of resol_cross_section_contribution (variable accounting for differences in resolution between calib ref and spectrum), Screenshot from 2022-11-14 13-47-55
+* median of resol_cross_section_contribution (variable accounting for differences in resolution between calib ref and spectrum)
 
 ### o3strato and no2strato
 
