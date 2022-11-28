@@ -17,7 +17,7 @@ This is the start page view, showing all instruments currently included in the p
 
 * Each image consists of 3 -- 6 horizontal blocks, each representing a module:
    - the first will always be _L1_
-   - the second (and maybe third) will be qdoas, "qdoas_s" is the qdoas analysis preceding the o3total and no2strato processing, _qdoas_m_ is the _qdoas_ processing preceeding the tropospheric processing. Depending on which processing is active for the station, one or both qdoas are displayed
+   - the second (and maybe third) will be _qdoas_, _qdoas_s_ is the _qdoas_ analysis preceding the _o3total_ and _no2strato_ processing, _qdoas_m_ is the _qdoas_ processing preceeding the _tropo_ processing. Depending on which processing is active for the station, one or both _qdoas_ are displayed
    - the following rows represent _tropo_, _o3total_, _no2strato_, depending on the station
 * While not very well visible in the overview page, each such block is build up of 28 columns and three rows, each square beeing either red, green or white.
 * The rows will be described later, each column is a day, the right most column is "yesterday".
@@ -41,7 +41,7 @@ In the matrix overview, each module, here _L1_, _qdoas_m_ and _tropo_, consists 
 1. number of files for the indicated day
 2. number of observations for the indicated day: 
    - for _L1_, this indicates the total measurement number
-   - for _qdoas_, this indicates the total number of measurements processed with qdoas
+   - for _qdoas_, this indicates the total number of measurements processed with _qdoas_
    - for _o3total_ or _no2strato_,  there are two numbers, indicating the number of measurements used individually for AM and PM processing
    - for _tropo_, this indicates the number of scans
 3. short info on module specific checks:
@@ -51,9 +51,9 @@ In the matrix overview, each module, here _L1_, _qdoas_m_ and _tropo_, consists 
 
 From the instrument overview page, one has the following two possibilities to go further:
 - following the link to the [monthly module overview page](#monthly-module-overview-page) for the corresponding module by click the green link, here _L1_, _qdoas_m_ or _tropo_, in the header of each section.
-- open a [dailymodule page](#daily-module-file) for the corresponding instrument by clicking on corresponding day column in the corresponding module block.
+- open a [daily module page](#daily-module-file) for the corresponding instrument by clicking on corresponding day column in the corresponding module block.
 
-If there are four or more modules (i.e. for any station that does not only have _tropo_ processing, or not only _no2strato_ processing, the matrix overview part is scrollable. If needed, the area indicating the error codes is also scrollable.
+If there are four or more modules (i.e. for any station that does not only have _tropo_ processing, or not only _no2strato_ processing, the matrix overview part is scrollable unless you have a gigantic screen. If needed, the area indicating the error codes is also scrollable.
 <sub>[(back)](#table-of-contents)</sub>
 
 ## monthly module overview page
@@ -64,19 +64,29 @@ The shown variables on the monthly overview page depend on the module in questio
 
 Some general comments hold:
 
-* Shown are always the last 28 days, whether or not they are present. If they are missing, they are now shown.
+* Shown are always the last 28 days, whether or not they are present. If they are missing, they are not shown.
 * The first row always shows a bar plot of the number of files. This should be exactly one.
 * The second plot always shows the number of measurements and indicated in there is the "median-3 std" line as a black line (black and red lines in the case of _no2strato_ or _o3total_, the former indicating am, the latter pm). As mentioned above, in case of _L1_, _qdoas_m_ or _qdoas_s_, this is the number of measurements. In case of _tropo_, this is the number of scans and in case of _no2strato_ and _o3total_ it is the number of measurements used for the am and pm retrieval, respectively.
 * all but the first plot have the following plotting tools available (However, if your screen is very small, you might not be able to see all the tools):
 
-   ![dahboard_4](https://user-images.githubusercontent.com/38353016/202756779-12627130-6efd-4a76-bd61-dab6906cff2e.png)
-  * pan tool (active by default)
-  * box zoom (click to make active, deactivates pan tool)
-  * tab (active by default, this initiates going to the daily file)
-  * reset (click to reset view)
-  * undo (click to go to previous view)
-  * save (click to save and download as png).
-* each dot is a link to the daily module file for the indicated day at the indicated instrument.
+<table>
+
+<tr><td>
+
+![dahboard_4](https://user-images.githubusercontent.com/38353016/202756779-12627130-6efd-4a76-bd61-dab6906cff2e.png)
+
+</td><td>
+
+  - pan tool (active by default)
+  - box zoom (click to make active, deactivates pan tool)
+  - tab (active by default, this initiates going to the daily file)
+  - reset (click to reset view)
+  - undo (click to go to previous view)
+  - save (click to save and download as png).|
+
+</td></tr> </table>
+
+* each dot is a link to the daily module file for the indicated day at the indicated instrument (if the tab tool is active).
 
 The module specific variables are described in the following subsections.
 <sub>[(back)](#table-of-contents)</sub>
