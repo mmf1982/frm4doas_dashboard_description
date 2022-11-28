@@ -1,6 +1,12 @@
 # Description of the dashboard
 
+<div id="sideMenu"> 
+   [TOC]
+</div> 
+
 ## Table of Contents  
+   
+
 [start page](#start-page)  
 
 [instrument overview  page](#instrument-overview-page)
