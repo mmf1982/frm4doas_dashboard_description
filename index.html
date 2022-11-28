@@ -53,7 +53,313 @@ body {
 </div>
 
 <div class="main">
-  {{about.md}}
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Description of the dashboard</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="Description of the dashboard" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="https://mmf1982.github.io/frm4doas_dashboard_description/about.html" />
+<meta property="og:url" content="https://mmf1982.github.io/frm4doas_dashboard_description/about.html" />
+<meta property="og:site_name" content="Description of the dashboard" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Description of the dashboard" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","headline":"Description of the dashboard","url":"https://mmf1982.github.io/frm4doas_dashboard_description/about.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/frm4doas_dashboard_description/assets/css/style.css?v=01982a7df3b3d70347174d5e9dd816ceba47b839">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/frm4doas_dashboard_description/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      
+
+      <h1 id="description-of-the-dashboard">Description of the dashboard</h1>
+
+<h2 id="table-of-contents">Table of Contents</h2>
+
+<p><a href="#start-page">start page</a></p>
+
+<p><a href="#instrument-overview-page">instrument overview  page</a></p>
+
+<p><a href="#monthly-module-overview-page">monthly instrument module page</a></p>
+
+<p><a href="#daily-module-file">daily instrument module page</a></p>
+
+<h2 id="start-page">start page</h2>
+
+<p>This is the start page view, showing all instruments currently included in the processing:</p>
+
+<p><img src="https://user-images.githubusercontent.com/38353016/204289387-a7efd522-5fde-41d0-a1d6-9037bfbadccd.png" alt="dashboard starting page" /></p>
+
+<ul>
+  <li>Each image consists of 3 – 6 horizontal blocks, each representing a module:
+    <ul>
+      <li>the first will always be <em>L1</em></li>
+      <li>the second (and maybe third) will be <em>qdoas</em>, <em>qdoas_s</em> is the <em>qdoas</em> analysis preceding the <em>o3total</em> and <em>no2strato</em> processing, <em>qdoas_m</em> is the <em>qdoas</em> processing preceeding the <em>tropo</em> processing. Depending on which processing is active for the station, one or both <em>qdoas</em> are displayed</li>
+      <li>the following rows represent <em>tropo</em>, <em>o3total</em>, <em>no2strato</em>, depending on the station</li>
+    </ul>
+  </li>
+  <li>While not very well visible in the overview page, each such block is build up of 28 columns and three rows, each square beeing either red, green or white.</li>
+  <li>The rows will be described later, each column is a day, the right most column is “yesterday”.</li>
+  <li>The last column (so “yesterday”) of each instrument determines the color of the station and instrument name, red means something is not quite allright, green means all is ok.</li>
+  <li>The last column can be white: there is a certain level1 file receiving delay, y, allowed for each station; if no level1 file was received in the last x days, all last min(x, y) columns are colored white and the color of the header is taken from the latest file that was received if this is within y, otherwise it is red. For example, there are missing files in both of the Uccle instruments, but they are both green, because the number of missing files x is smaller than the allowed delay y, and the last processed file resulted in no problems. However, Bremen 1673_2 also has missing files and although the number of missing files x is also lower than the number of allowed files y, the header is red, because the last “legal” file had some problem.</li>
+  <li>Each image is a link to the respective instrument overview page, e.g. clicking on Uccle 1689_2 brings you to the <a href="#instrument-overview-page">instrument overview page</a>
+<sub><a href="#table-of-contents">(back)</a></sub></li>
+</ul>
+
+<h2 id="instrument-overview-page">instrument overview page</h2>
+
+<p>This is the instrument overview page for an instrument with only tropo processing:</p>
+
+<p><img src="https://user-images.githubusercontent.com/38353016/204289452-5bd95469-1122-4dea-972a-bffae66eded5.png" alt="instrument overview page" /></p>
+
+<p>The station overview page has two elements:</p>
+<ul>
+  <li>a matrix overview showing each module, see below</li>
+  <li>an area (light red background) showing checks on qdoas that showed a problem (errorcodes)</li>
+</ul>
+
+<p>In the matrix overview, each module, here <em>L1</em>, <em>qdoas_m</em> and <em>tropo</em>, consists of three rows:</p>
+
+<ol>
+  <li>number of files for the indicated day</li>
+  <li>number of observations for the indicated day:
+    <ul>
+      <li>for <em>L1</em>, this indicates the total measurement number</li>
+      <li>for <em>qdoas</em>, this indicates the total number of measurements processed with <em>qdoas</em></li>
+      <li>for <em>o3total</em> or <em>no2strato</em>,  there are two numbers, indicating the number of measurements used individually for AM and PM processing</li>
+      <li>for <em>tropo</em>, this indicates the number of scans</li>
+    </ul>
+  </li>
+  <li>short info on module specific checks:
+    <ul>
+      <li>for <em>L1</em>, this is the time difference between the calculated solar noon at the station’s location and the time of the measurement with the lowest solar zenith angle. If this is larger than 10 min, this will cause this box to appear red.</li>
+      <li>for <em>qdoas_m</em> or <em>qdoas_s</em>, different variables are checked and tested whether or not they are within the median ± 3 std. If any of the variables currently checked are outside this region, an error code is produced and a list of occured errors can be found below the matrix overview plot in the light red area. Please see Section <a href="#qdoas_m-and-qdoas_s">details on qdoas checks</a> for more info.</li>
+      <li>neither of the modules producing level2 files (<em>tropo</em>, <em>o3strato</em> or <em>no2strato</em>) fills the “checks” row at the moment, therefore, the row is blanc.</li>
+    </ul>
+  </li>
+</ol>
+
+<p>From the instrument overview page, one has the following two possibilities to go further:</p>
+<ul>
+  <li>following the link to the <a href="#monthly-module-overview-page">monthly module overview page</a> for the corresponding module by click the green link, here <em>L1</em>, <em>qdoas_m</em> or <em>tropo</em>, in the header of each section.</li>
+  <li>open a <a href="#daily-module-file">daily module page</a> for the corresponding instrument by clicking on corresponding day column in the corresponding module block.</li>
+</ul>
+
+<p>If there are four or more modules (i.e. for any station that does not only have <em>tropo</em> processing, or not only <em>no2strato</em> processing, the matrix overview part is scrollable unless you have a gigantic screen. If needed, the area indicating the error codes is also scrollable.
+<sub><a href="#table-of-contents">(back)</a></sub></p>
+
+<h2 id="monthly-module-overview-page">monthly module overview page</h2>
+
+<p>The shown variables on the monthly overview page depend on the module in question. As an example, I show here the start of the <em>qdoas_m</em> page from Uccle.</p>
+
+<p><img src="https://user-images.githubusercontent.com/38353016/204289512-8023e1c7-e70b-49cf-933a-3e8214bdcde5.png" alt="monthly module overview page" /></p>
+
+<p>Some general comments hold:</p>
+
+<ul>
+  <li>Shown are always the last 28 days, whether or not they are present. If they are missing, they are not shown.</li>
+  <li>The first row always shows a bar plot of the number of files. This should be exactly one.</li>
+  <li>The second plot always shows the number of measurements and indicated in there is the “median-3 std” line as a black line (black and red lines in the case of <em>no2strato</em> or <em>o3total</em>, the former indicating am, the latter pm). As mentioned above, in case of <em>L1</em>, <em>qdoas_m</em> or <em>qdoas_s</em>, this is the number of measurements. In case of <em>tropo</em>, this is the number of scans and in case of <em>no2strato</em> and <em>o3total</em> it is the number of measurements used for the am and pm retrieval, respectively.</li>
+  <li>all but the first plot have the following plotting tools available (However, if your screen is very small, you might not be able to see all the tools):</li>
+</ul>
+
+<table>
+
+<tr><td>
+
+![dahboard_4](https://user-images.githubusercontent.com/38353016/202756779-12627130-6efd-4a76-bd61-dab6906cff2e.png)
+
+</td><td>
+
+  - pan tool (active by default)
+  - box zoom (click to make active, deactivates pan tool)
+  - tab (active by default, this initiates going to the daily file)
+  - reset (click to reset view)
+  - undo (click to go to previous view)
+  - save (click to save and download as png).|
+
+</td></tr> </table>
+
+<ul>
+  <li>each dot is a link to the daily module file for the indicated day at the indicated instrument (if the tab tool is active).</li>
+</ul>
+
+<p>The module specific variables are described in the following subsections.
+<sub><a href="#table-of-contents">(back)</a></sub></p>
+
+<h3 id="l1"><em>L1</em></h3>
+
+<ul>
+  <li>local solar noon and time of the measurement having the smallest solar zenith angle. Also indicated are the ± 10 min lines around the calculated solar noon.</li>
+  <li>solar zenith angle of the measurement with the lowest solar zenith angle</li>
+  <li>(daily) median of the relative intensity (wavelength mean of (radiance)/exposure time) and also indicated is the monthly median of the daily medians.</li>
+  <li>(daily) maximum radiance with monthly median of this
+<sub><a href="#table-of-contents">(back)</a></sub></li>
+</ul>
+
+<h3 id="qdoas_m-and-qdoas_s"><em>qdoas_m</em> and <em>qdoas_s</em></h3>
+
+<p>All monthly overview plots are shown for each window in a different color in the same plot, according to the legend. The legend is clickable to toggle the corresponding window, however, the plots are not inter-connected, so toggling one plot, will not hide the same window in another plot, but panning and zooming (in time) will act on all plots. While the first two should be the same in all windows since they concern the calibartion, they are still plotted for each window.</p>
+
+<ul>
+  <li>median of slit function parameter (with monthly median ±3 std ranges)</li>
+  <li>median of calibration shift (with monthly median ±3 std ranges)</li>
+  <li>median of constant offset (with monthly median ±3 std ranges)</li>
+  <li>median of rms (with monthly median ±3 std ranges)</li>
+  <li>median of wavelength_shift (with monthly median ±3 std ranges)</li>
+  <li>median of resol_cross_section_contribution (variable accounting for differences in resolution between calibration reference and spectrum)</li>
+</ul>
+
+<p>All these parameters take currently the whole day into account. Although the median should in principle circumvent the problem of sunset/sunrise effects, it might be advisable to choose a better indicator than the median and suggestions are welcome.
+<sub><a href="#table-of-contents">(back)</a></sub></p>
+
+<h3 id="o3strato-and-no2strato"><em>o3strato</em> and <em>no2strato</em></h3>
+
+<ul>
+  <li>am and pm VCD without indication of monthly median.
+<sub><a href="#table-of-contents">(back)</a></sub></li>
+</ul>
+
+<h3 id="tropo"><em>tropo</em></h3>
+
+<ul>
+  <li>mean number of elevation angles per scan (with median - 3 std)</li>
+  <li>mean broken cloud flag per day (0 is no broken clouds, 1 is broken clouds, so the closer to 0, the more unflagged scans)</li>
+  <li>for each window, one plot displaying mean mmf, mapa and overall_qa flag.
+<sub><a href="#table-of-contents">(back)</a></sub></li>
+</ul>
+
+<h2 id="daily-module-file">daily module file</h2>
+
+<p>Mostly, the same parameters are displayed as for the <a href="#monthly-module-overview-page">monthly overview</a> files. Some comments:</p>
+
+<ul>
+  <li>at the top, the name (and path, only internally due to security regulations) of the log file is indicated.</li>
+  <li>just below, the name of the file which content is displayed, is indicated</li>
+  <li>No mean or median lines are included in the plots.</li>
+  <li>For <em>no2strato</em> and <em>o3strato</em>, AM and PM plots are both present.</li>
+  <li>most plots have a <em>lin</em> and a <em>log</em> tab (upper left corner, if present) which changes one or both of the axes between linear and log, where it makes sense.</li>
+  <li>at the top, one can go directly to the previous or next day (buttons in the gray sticky header), without having to go back to the monthly overview page.</li>
+  <li>if a plot shows more than one line (e.g. AM and PM, or measured and simulated, or apriori and profile), the lines can be toggled via a click on the legend
+<sub><a href="#table-of-contents">(back)</a></sub></li>
+</ul>
+
+<h3 id="l1-1">L1</h3>
+
+<ul>
+  <li><em>L1</em> daily plots might take a while to load</li>
+  <li>in the sticky header, the color coding is indicated, each color indicates a certain measurement type.</li>
+  <li>the first panel shows the relative intensity (wavelength mean of intensity over exposure time)</li>
+  <li>second panel shows exposure time</li>
+  <li>they offer the possibility to plot each spectrum:
+    <ul>
+      <li>the tab tool is activated by default, a click on any measurement in either the relative intensity or exposure time plot, will plot the corresponding spectrum in the lowest panel</li>
+      <li>holding the shift button and clicking on another point, will add another spectrum</li>
+      <li>one can activated the box select tool and then draw a box containing several points right away to plot several spectra.</li>
+      <li>a click in an area without any points goes back to the no-measurement-selected view.</li>
+    </ul>
+  </li>
+  <li>note the log/ lin tabs in the upper left corner of each plot.
+<sub><a href="#table-of-contents">(back)</a></sub></li>
+</ul>
+
+<h3 id="qdoas"><em>qdoas</em></h3>
+
+<p><img src="https://user-images.githubusercontent.com/38353016/204289675-fd000ba1-0486-4c69-8135-d06e174574c7.png" alt="qdoas" /></p>
+
+<ul>
+  <li>the first two panels (both shown in the first line), show calibration diagnostics: the slit function parameter 1 (sfp 1) and the calibration shift (calib shift). Both are shown as a function of wavelength sub-window index and hence indicate the stability over the wavelength range.</li>
+  <li>the other panels show the same parameters described in the <a href="#monthly-module-overview-page">monthly overview pages</a>, simply without taking the daily median.  <sub><a href="#table-of-contents">(back)</a></sub></li>
+</ul>
+
+<h3 id="o3total"><em>o3total</em></h3>
+
+<p><img src="https://user-images.githubusercontent.com/38353016/204289721-b93046cb-e0ac-40cb-be7b-32ea67c21053.png" alt="o3 total" /></p>
+
+<p>3 panels are shown for the <em>o3total</em>:</p>
+<ul>
+  <li>QA (0 ok, 1 fail)</li>
+  <li>vertical column density (VCD) including error bars</li>
+  <li>measured SCD including error bars, as function of solar zenith angle (green for am, red for pm, as indicated in the legend)
+<sub><a href="#table-of-contents">(back)</a></sub></li>
+</ul>
+
+<h3 id="no2strato"><em>no2strato</em></h3>
+
+<p><img src="https://user-images.githubusercontent.com/38353016/204289770-f59c3400-fd93-4d16-b35e-21f186d05a1e.png" alt="no2strato" /></p>
+
+<p>5 panels are shown for <em>no2strato</em>:</p>
+<ul>
+  <li>first line:
+    <ul>
+      <li>QA (0 ok, 1 fail)</li>
+      <li>degree of freedom (DOF)</li>
+      <li>vertical column density (VCD) including error bars</li>
+    </ul>
+  </li>
+  <li>second (am) and third (pm) line:
+    <ul>
+      <li>profiles: a-priori (green) and retrieved (red)</li>
+      <li>measured (green) and simulated (red) slant column densities (SCD), the former including error bars.
+<sub><a href="#table-of-contents">(back)</a></sub></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="tropo-1"><em>tropo</em></h3>
+
+<p><img src="https://user-images.githubusercontent.com/38353016/204289825-fd27c617-fa7c-45c0-af7f-d422fff26ae9.png" alt="tropo" /></p>
+
+<ul>
+  <li>the first panel shows a daily time series of a number of flags:
+    <ul>
+      <li>the broken cloud flag (dashed black)</li>
+      <li>the overall flag for all trace gases retrieved from the measurements of the instrument in question, with color coding according to the legend</li>
+    </ul>
+  </li>
+  <li>Similar to the <em>L1</em> daily pots, the <em>tropo</em> daily plots offer the posibility to plot more details (corresponding profiles and measured and simulated dscds) when selecting (via activated tab selector or via activatable box select) points in the time series.</li>
+  <li>each row (they come in pairs of two: one trace gas row followed by the corresponding o4 window and aerosol retrieval) following the flag panel, consists of:
+    <ul>
+      <li>a time series of the integrated quantity (VCD or AOD) (left)</li>
+      <li>the retrieved profile (if a measurement or measurements are selected) (middle)</li>
+      <li>measured and simulated dscs (right)</li>
+    </ul>
+  </li>
+  <li>the color coding, similar to the L1 daily plots, is indicated in the header, mapa has circles, mmf has crosses, each three different colors to indicate the flagging condition.</li>
+  <li>on the right, one can de-select either of the two codes (mapa, mmf) in each set of two rows</li>
+  <li>if two or more trace gases use the same o4 window for its base aerosol retrieval, the aerosol retrieval row is duplicated and shown after each of the trace gases.
+<sub><a href="#table-of-contents">(back)</a></sub></li>
+</ul>
+ </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+  </body>
+</html>
+  
+  
+  
+  
+  
 </div>
    
 </body>
