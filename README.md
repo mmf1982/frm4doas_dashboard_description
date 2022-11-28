@@ -1,5 +1,14 @@
 # Description of the dashboard
 
+## Table of Contents  
+[start page](#start-page)  
+
+[instrument overview  page](#instrument-overview-page)
+
+[monthly instrument module page](#monthly-module-overview-page)
+
+[daily instrument module page](#daily-module-file)
+
 ## start page
 
 This is the start page view, showing all instruments currently included in the processing:
