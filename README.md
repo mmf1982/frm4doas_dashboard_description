@@ -1,9 +1,5 @@
 # Description of the dashboard
 
-<div id="sideMenu"> 
-   [TOC]
-</div> 
-
 ## Table of Contents  
    
 
