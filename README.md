@@ -13,12 +13,12 @@
 
 This is the start page view, showing all instruments currently included in the processing:
 
-![dashboard starting page](https://user-images.githubusercontent.com/38353016/204247123-6f069b1f-6c54-4de4-b3e6-d3a592ce21ec.png)
+![dashboard starting page](https://user-images.githubusercontent.com/38353016/204289387-a7efd522-5fde-41d0-a1d6-9037bfbadccd.png)
 
 * Each image consists of 3 -- 6 horizontal blocks, each representing a module:
-   - the first will always be L1
-   - the second (and maybe third) will be qdoas, "qdoas_s" is the qdoas analysis preceding the o3total and no2strato processing, "qdoas_m" is the qdoas processing preceeding the tropospheric processing. Depending on which processing is active for the station, one or both qdoas are displayed
-   - the following rows represent "tropo", "o3total", "no2strato", depending on the station
+   - the first will always be _L1_
+   - the second (and maybe third) will be qdoas, "qdoas_s" is the qdoas analysis preceding the o3total and no2strato processing, _qdoas_m_ is the _qdoas_ processing preceeding the tropospheric processing. Depending on which processing is active for the station, one or both qdoas are displayed
+   - the following rows represent _tropo_, _o3total_, _no2strato_, depending on the station
 * While not very well visible in the overview page, each such block is build up of 28 columns and three rows, each square beeing either red, green or white.
 * The rows will be described later, each column is a day, the right most column is "yesterday".
 * The last column (so "yesterday") of each instrument determines the color of the station and instrument name, red means something is not quite allright, green means all is ok.
@@ -29,7 +29,7 @@ This is the start page view, showing all instruments currently included in the p
 
 This is the instrument overview page for an instrument with only tropo processing:
 
-![image](https://user-images.githubusercontent.com/38353016/204248992-0e3803f9-aa86-4366-b183-9ca1652ae4a0.png)
+![instrument overview page](https://user-images.githubusercontent.com/38353016/204289452-5bd95469-1122-4dea-972a-bffae66eded5.png)
 
 The station overview page has two elements:
 - a matrix overview showing each module, see below
@@ -39,10 +39,10 @@ In the matrix overview, each module, here _L1_, _qdoas_m_ and _tropo_, consists 
 
 1. number of files for the indicated day
 2. number of observations for the indicated day: 
-   - for L1, this indicates the total measurement number
-   - for qdoas, this indicates the total number of measurements processed with qdoas
+   - for _L1_, this indicates the total measurement number
+   - for _qdoas_, this indicates the total number of measurements processed with qdoas
    - for _o3total_ or _no2strato_,  there are two numbers, indicating the number of measurements used individually for AM and PM processing
-   - for tropo, this indicates the number of scans
+   - for _tropo_, this indicates the number of scans
 3. short info on module specific checks:
    - for _L1_, this is the time difference between the calculated solar noon at the station's location and the time of the measurement with the lowest solar zenith angle. If this is larger than 10 min, this will cause this box to appear red.
    - for _qdoas_m_ or _qdoas_s_, different variables are checked and tested whether or not they are within the median ± 3 std. If any of the variables currently checked are outside this region, an error code is produced and a list of occured errors can be found below the matrix overview plot in the light red area. Please see Section [details on qdoas checks](#qdoas_m-and-qdoas_s) for more info.
@@ -58,8 +58,7 @@ If there are four or more modules (i.e. for any station that does not only have 
 
 The shown variables on the monthly overview page depend on the module in question. As an example, I show here the start of the _qdoas_m_ page from Uccle.
 
-![dahboard_3](https://user-images.githubusercontent.com/38353016/202756663-59b975d3-fa6a-4fd4-8d7e-3548c8731951.png)
-
+![monthly module overview page](https://user-images.githubusercontent.com/38353016/204289512-8023e1c7-e70b-49cf-933a-3e8214bdcde5.png)
 
 Some general comments hold:
 
@@ -99,11 +98,11 @@ All monthly overview plots are shown for each window in a different color in the
 
 All these parameters take currently the whole day into account. Although the median should in principle circumvent the problem of sunset/sunrise effects, it might be advisable to choose a better indicator than the median and suggestions are welcome.
 <sub>[(back)](#table-of-contents)</sub>
-### o3strato and no2strato
+### _o3strato_ and _no2strato_
 
 * am and pm VCD without indication of monthly median.
 <sub>[(back)](#table-of-contents)</sub>
-### tropo
+### _tropo_
 
 * mean number of elevation angles per scan (with median - 3 std)
 * mean broken cloud flag per day (0 is no broken clouds, 1 is broken clouds, so the closer to 0, the more unflagged scans)
@@ -135,26 +134,35 @@ Mostly, the same parameters are displayed as for the [monthly overview](#monthly
 <sub>[(back)](#table-of-contents)</sub>
 ### _qdoas_
 
+![qdoas](https://user-images.githubusercontent.com/38353016/204289675-fd000ba1-0486-4c69-8135-d06e174574c7.png)
+
 * the first two panels (both shown in the first line), show calibration diagnostics: the slit function parameter 1 (sfp 1) and the calibration shift (calib shift). Both are shown as a function of wavelength sub-window index and hence indicate the stability over the wavelength range.
 * the other panels show the same parameters described in the [monthly overview pages](#monthly-module-overview-page), simply without taking the daily median.  <sub>[(back)](#table-of-contents)</sub>
 
 ### _o3total_
+![o3 total](https://user-images.githubusercontent.com/38353016/204289721-b93046cb-e0ac-40cb-be7b-32ea67c21053.png)
+
 3 panels are shown for the _o3total_:
 * QA (0 ok, 1 fail) 
 * vertical column density (VCD) including error bars
 * measured SCD including error bars, as function of solar zenith angle (green for am, red for pm, as indicated in the legend)
 <sub>[(back)](#table-of-contents)</sub>
 ### _no2strato_
+![no2strato](https://user-images.githubusercontent.com/38353016/204289770-f59c3400-fd93-4d16-b35e-21f186d05a1e.png)
+
 5 panels are shown for _no2strato_:
-* QA (0 ok, 1 fail)
-* degree of freedom (DOF)
-* vertical column density (VCD) including error bars
-* am and pm (first am, then pm):
+* first line:
+   - QA (0 ok, 1 fail)
+   - degree of freedom (DOF)
+   - vertical column density (VCD) including error bars
+* second (am) and third (pm) line: 
    - profiles: a-priori (green) and retrieved (red)
    - measured (green) and simulated (red) slant column densities (SCD), the former including error bars.
 <sub>[(back)](#table-of-contents)</sub>   
 
 ### _tropo_
+![tropo](https://user-images.githubusercontent.com/38353016/204289825-fd27c617-fa7c-45c0-af7f-d422fff26ae9.png)
+
 * the first panel shows a daily time series of a number of flags:
    - the broken cloud flag (dashed black)
    - the overall flag for all trace gases retrieved from the measurements of the instrument in question, with color coding according to the legend
@@ -164,6 +172,6 @@ Mostly, the same parameters are displayed as for the [monthly overview](#monthly
    - the retrieved profile (if a measurement or measurements are selected) (middle)
    - measured and simulated dscs (right)
 * the color coding, similar to the L1 daily plots, is indicated in the header, mapa has circles, mmf has crosses, each three different colors to indicate the flagging condition.
-* on the right, one can de-select either of the two codes in each set of two rows
+* on the right, one can de-select either of the two codes (mapa, mmf) in each set of two rows
 * if two or more trace gases use the same o4 window for its base aerosol retrieval, the aerosol retrieval row is duplicated and shown after each of the trace gases.
 <sub>[(back)](#table-of-contents)</sub>
