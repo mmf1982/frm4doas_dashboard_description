@@ -24,7 +24,7 @@ This is the start page view, showing all instruments currently included in the p
 * The last column (so "yesterday") of each instrument determines the color of the station and instrument name, red means something is not quite allright, green means all is ok.
 * The last column can be white: there is a certain level1 file receiving delay, y, allowed for each station; if no level1 file was received in the last x days, all last min(x, y) columns are colored white and the color of the header is taken from the latest file that was received if this is within y, otherwise it is red. For example, there are missing files in both of the Uccle instruments, but they are both green, because the number of missing files x is smaller than the allowed delay y, and the last processed file resulted in no problems. However, Bremen 1673_2 also has missing files and although the number of missing files x is also lower than the number of allowed files y, the header is red, because the last "legal" file had some problem.
 * Each image is a link to the respective instrument overview page, e.g. clicking on Uccle 1689_2 brings you to the [instrument overview page](#instrument-overview-page)
-
+<sub>[(back)](#table-of-contents)</sub>
 ## instrument overview page
 
 This is the instrument overview page for an instrument with only tropo processing:
@@ -53,7 +53,7 @@ From the instrument overview page, one has the following two possibilities to go
 - open a [dailymodule page](#daily-module-file) for the corresponding instrument by clicking on corresponding day column in the corresponding module block.
 
 If there are four or more modules (i.e. for any station that does not only have _tropo_ processing, or not only _no2strato_ processing, the matrix overview part is scrollable. If needed, the area indicating the error codes is also scrollable.
-
+<sub>[(back)](#table-of-contents)</sub>
 ## monthly module overview page
 
 The shown variables on the monthly overview page depend on the module in question. As an example, I show here the start of the _qdoas_m_ page from Uccle.
@@ -77,17 +77,15 @@ Some general comments hold:
   * save (click to save and download as png).
 * each dot is a link to the daily module file for the indicated day at the indicated instrument.
 
-## list of variables for monthly module overview pages
-
-Here is a list of additional plots for each module (additional to the two named above that are the same in each module) that are module specific:
-
+The module specific variables are described in the following subsections.
+<sub>[(back)](#table-of-contents)</sub>
 ### _L1_
 
 * local solar noon and time of the measurement having the smallest solar zenith angle. Also indicated are the ± 10 min lines around the calculated solar noon.
 * solar zenith angle of the measurement with the lowest solar zenith angle
 * (daily) median of the relative intensity (wavelength mean of (radiance)/exposure time) and also indicated is the monthly median of the daily medians.
 * (daily) maximum radiance with monthly median of this
-
+<sub>[(back)](#table-of-contents)</sub>
 ### _qdoas_m_ and _qdoas_s_
 
 All monthly overview plots are shown for each window in a different color in the same plot, according to the legend. The legend is clickable to toggle the corresponding window, however, the plots are not inter-connected, so toggling one plot, will not hide the same window in another plot, but panning and zooming (in time) will act on all plots. While the first two should be the same in all windows since they concern the calibartion, they are still plotted for each window.
@@ -100,17 +98,17 @@ All monthly overview plots are shown for each window in a different color in the
 * median of resol_cross_section_contribution (variable accounting for differences in resolution between calibration reference and spectrum)
 
 All these parameters take currently the whole day into account. Although the median should in principle circumvent the problem of sunset/sunrise effects, it might be advisable to choose a better indicator than the median and suggestions are welcome.
-
+<sub>[(back)](#table-of-contents)</sub>
 ### o3strato and no2strato
 
 * am and pm VCD without indication of monthly median.
-
+<sub>[(back)](#table-of-contents)</sub>
 ### tropo
 
 * mean number of elevation angles per scan (with median - 3 std)
 * mean broken cloud flag per day (0 is no broken clouds, 1 is broken clouds, so the closer to 0, the more unflagged scans)
 * for each window, one plot displaying mean mmf, mapa and overall_qa flag.
-
+<sub>[(back)](#table-of-contents)</sub>
 ## daily module file
 
 Mostly, the same parameters are displayed as for the [monthly overview](#monthly-module-overview-page) files. Some comments:
@@ -122,7 +120,7 @@ Mostly, the same parameters are displayed as for the [monthly overview](#monthly
 * most plots have a _lin_ and a _log_ tab (upper left corner, if present) which changes one or both of the axes between linear and log, where it makes sense.
 * at the top, one can go directly to the previous or next day (buttons in the gray sticky header), without having to go back to the monthly overview page.
 * if a plot shows more than one line (e.g. AM and PM, or measured and simulated, or apriori and profile), the lines can be toggled via a click on the legend
-
+<sub>[(back)](#table-of-contents)</sub>
 ### L1
 * _L1_ daily plots might take a while to load
 * in the sticky header, the color coding is indicated, each color indicates a certain measurement type.
@@ -134,18 +132,18 @@ Mostly, the same parameters are displayed as for the [monthly overview](#monthly
    - one can activated the box select tool and then draw a box containing several points right away to plot several spectra.
    - a click in an area without any points goes back to the no-measurement-selected view.
 * note the log/ lin tabs in the upper left corner of each plot.
-
+<sub>[(back)](#table-of-contents)</sub>
 ### _qdoas_
 
 * the first two panels (both shown in the first line), show calibration diagnostics: the slit function parameter 1 (sfp 1) and the calibration shift (calib shift). Both are shown as a function of wavelength sub-window index and hence indicate the stability over the wavelength range.
-* the other panels show the same parameters described in the [monthly overview pages](#monthly-module-overview-page), simply without taking the daily median.  
+* the other panels show the same parameters described in the [monthly overview pages](#monthly-module-overview-page), simply without taking the daily median.  <sub>[(back)](#table-of-contents)</sub>
 
 ### _o3total_
 3 panels are shown for the _o3total_:
 * QA (0 ok, 1 fail) 
 * vertical column density (VCD) including error bars
 * measured SCD including error bars, as function of solar zenith angle (green for am, red for pm, as indicated in the legend)
-
+<sub>[(back)](#table-of-contents)</sub>
 ### _no2strato_
 5 panels are shown for _no2strato_:
 * QA (0 ok, 1 fail)
@@ -154,7 +152,7 @@ Mostly, the same parameters are displayed as for the [monthly overview](#monthly
 * am and pm (first am, then pm):
    - profiles: a-priori (green) and retrieved (red)
    - measured (green) and simulated (red) slant column densities (SCD), the former including error bars.
-   
+<sub>[(back)](#table-of-contents)</sub>   
 
 ### _tropo_
 * the first panel shows a daily time series of a number of flags:
@@ -168,4 +166,4 @@ Mostly, the same parameters are displayed as for the [monthly overview](#monthly
 * the color coding, similar to the L1 daily plots, is indicated in the header, mapa has circles, mmf has crosses, each three different colors to indicate the flagging condition.
 * on the right, one can de-select either of the two codes in each set of two rows
 * if two or more trace gases use the same o4 window for its base aerosol retrieval, the aerosol retrieval row is duplicated and shown after each of the trace gases.
-
+<sub>[(back)](#table-of-contents)</sub>
