@@ -25,6 +25,7 @@ This is the start page view, showing all instruments currently included in the p
 * The last column can be white: there is a certain level1 file receiving delay, y, allowed for each station; if no level1 file was received in the last x days, all last min(x, y) columns are colored white and the color of the header is taken from the latest file that was received if this is within y, otherwise it is red. For example, there are missing files in both of the Uccle instruments, but they are both green, because the number of missing files x is smaller than the allowed delay y, and the last processed file resulted in no problems. However, Bremen 1673_2 also has missing files and although the number of missing files x is also lower than the number of allowed files y, the header is red, because the last "legal" file had some problem.
 * Each image is a link to the respective instrument overview page, e.g. clicking on Uccle 1689_2 brings you to the [instrument overview page](#instrument-overview-page)
 <sub>[(back)](#table-of-contents)</sub>
+
 ## instrument overview page
 
 This is the instrument overview page for an instrument with only tropo processing:
@@ -54,6 +55,7 @@ From the instrument overview page, one has the following two possibilities to go
 
 If there are four or more modules (i.e. for any station that does not only have _tropo_ processing, or not only _no2strato_ processing, the matrix overview part is scrollable. If needed, the area indicating the error codes is also scrollable.
 <sub>[(back)](#table-of-contents)</sub>
+
 ## monthly module overview page
 
 The shown variables on the monthly overview page depend on the module in question. As an example, I show here the start of the _qdoas_m_ page from Uccle.
@@ -78,6 +80,7 @@ Some general comments hold:
 
 The module specific variables are described in the following subsections.
 <sub>[(back)](#table-of-contents)</sub>
+
 ### _L1_
 
 * local solar noon and time of the measurement having the smallest solar zenith angle. Also indicated are the ± 10 min lines around the calculated solar noon.
@@ -85,6 +88,7 @@ The module specific variables are described in the following subsections.
 * (daily) median of the relative intensity (wavelength mean of (radiance)/exposure time) and also indicated is the monthly median of the daily medians.
 * (daily) maximum radiance with monthly median of this
 <sub>[(back)](#table-of-contents)</sub>
+
 ### _qdoas_m_ and _qdoas_s_
 
 All monthly overview plots are shown for each window in a different color in the same plot, according to the legend. The legend is clickable to toggle the corresponding window, however, the plots are not inter-connected, so toggling one plot, will not hide the same window in another plot, but panning and zooming (in time) will act on all plots. While the first two should be the same in all windows since they concern the calibartion, they are still plotted for each window.
@@ -98,16 +102,19 @@ All monthly overview plots are shown for each window in a different color in the
 
 All these parameters take currently the whole day into account. Although the median should in principle circumvent the problem of sunset/sunrise effects, it might be advisable to choose a better indicator than the median and suggestions are welcome.
 <sub>[(back)](#table-of-contents)</sub>
+
 ### _o3strato_ and _no2strato_
 
 * am and pm VCD without indication of monthly median.
 <sub>[(back)](#table-of-contents)</sub>
+
 ### _tropo_
 
 * mean number of elevation angles per scan (with median - 3 std)
 * mean broken cloud flag per day (0 is no broken clouds, 1 is broken clouds, so the closer to 0, the more unflagged scans)
 * for each window, one plot displaying mean mmf, mapa and overall_qa flag.
 <sub>[(back)](#table-of-contents)</sub>
+
 ## daily module file
 
 Mostly, the same parameters are displayed as for the [monthly overview](#monthly-module-overview-page) files. Some comments:
@@ -120,7 +127,9 @@ Mostly, the same parameters are displayed as for the [monthly overview](#monthly
 * at the top, one can go directly to the previous or next day (buttons in the gray sticky header), without having to go back to the monthly overview page.
 * if a plot shows more than one line (e.g. AM and PM, or measured and simulated, or apriori and profile), the lines can be toggled via a click on the legend
 <sub>[(back)](#table-of-contents)</sub>
+
 ### L1
+
 * _L1_ daily plots might take a while to load
 * in the sticky header, the color coding is indicated, each color indicates a certain measurement type.
 * the first panel shows the relative intensity (wavelength mean of intensity over exposure time)
@@ -132,6 +141,7 @@ Mostly, the same parameters are displayed as for the [monthly overview](#monthly
    - a click in an area without any points goes back to the no-measurement-selected view.
 * note the log/ lin tabs in the upper left corner of each plot.
 <sub>[(back)](#table-of-contents)</sub>
+
 ### _qdoas_
 
 ![qdoas](https://user-images.githubusercontent.com/38353016/204289675-fd000ba1-0486-4c69-8135-d06e174574c7.png)
@@ -140,6 +150,7 @@ Mostly, the same parameters are displayed as for the [monthly overview](#monthly
 * the other panels show the same parameters described in the [monthly overview pages](#monthly-module-overview-page), simply without taking the daily median.  <sub>[(back)](#table-of-contents)</sub>
 
 ### _o3total_
+
 ![o3 total](https://user-images.githubusercontent.com/38353016/204289721-b93046cb-e0ac-40cb-be7b-32ea67c21053.png)
 
 3 panels are shown for the _o3total_:
@@ -147,7 +158,9 @@ Mostly, the same parameters are displayed as for the [monthly overview](#monthly
 * vertical column density (VCD) including error bars
 * measured SCD including error bars, as function of solar zenith angle (green for am, red for pm, as indicated in the legend)
 <sub>[(back)](#table-of-contents)</sub>
+
 ### _no2strato_
+
 ![no2strato](https://user-images.githubusercontent.com/38353016/204289770-f59c3400-fd93-4d16-b35e-21f186d05a1e.png)
 
 5 panels are shown for _no2strato_:
@@ -161,6 +174,7 @@ Mostly, the same parameters are displayed as for the [monthly overview](#monthly
 <sub>[(back)](#table-of-contents)</sub>   
 
 ### _tropo_
+
 ![tropo](https://user-images.githubusercontent.com/38353016/204289825-fd27c617-fa7c-45c0-af7f-d422fff26ae9.png)
 
 * the first panel shows a daily time series of a number of flags:
