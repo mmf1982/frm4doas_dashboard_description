@@ -101,7 +101,7 @@ body {
   <li>The last column (so “yesterday”) of each instrument determines the color of the station and instrument name, red means something is not quite allright, green means all is ok.</li>
   <li>The last column can be white: there is a certain level1 file receiving delay, y, allowed for each station; if no level1 file was received in the last x days, all last min(x, y) columns are colored white and the color of the header is taken from the latest file that was received if this is within y, otherwise it is red. For example, there are missing files in both of the Uccle instruments, but they are both green, because the number of missing files x is smaller than the allowed delay y, and the last processed file resulted in no problems. However, Bremen 1673_2 also has missing files and although the number of missing files x is also lower than the number of allowed files y, the header is red, because the last “legal” file had some problem.</li>
   <li>Each image is a link to the respective instrument overview page, e.g. clicking on Uccle 1689_2 brings you to the <a href="#instrument-overview-page">instrument overview page</a>
-<sub><a href="#table-of-contents">(back)</a></sub></li>
+<sub><a href="#description-of-the-dashboard">(back)</a></sub></li>
 </ul>
 
 <h2 id="instrument-overview-page">Instrument overview page</h2>
@@ -140,7 +140,7 @@ body {
 </ul>
 
 <p>If there are four or more modules (i.e. for any station that does not only have <em>tropo</em> processing, or not only <em>no2strato</em> processing, the matrix overview part is scrollable unless you have a gigantic screen. If needed, the area indicating the error codes is also scrollable.
-<sub><a href="#table-of-contents">(back)</a></sub></p>
+<sub><a href="#description-of-the-dashboard">(back)</a></sub></p>
 
 <h2 id="monthly-module-overview-page">Monthly module overview page</h2>
 
@@ -178,7 +178,7 @@ body {
 </ul>
 
 <p>The module specific variables are described in the following subsections.
-<sub><a href="#table-of-contents">(back)</a></sub></p>
+<sub><a href="#description-of-the-dashboard">(back)</a></sub></p>
 
 <h3 id="l1"><em>L1</em></h3>
 
@@ -189,7 +189,7 @@ body {
   <li>(daily) median of the relative intensity (wavelength mean of (radiance)/exposure time) and also indicated
     is the monthly median of the daily medians.</li>
   <li>(daily) maximum radiance with monthly median of this
-<sub><a href="#table-of-contents">(back)</a></sub></li>
+<sub><a href="#description-of-the-dashboard">(back)</a></sub></li>
 </ul>
 
 <h3 id="qdoas_m-and-qdoas_s"><em>qdoas_m</em> and <em>qdoas_s</em></h3>
@@ -206,13 +206,13 @@ body {
 </ul>
 
 <p>All these parameters take currently the whole day into account. Although the median should in principle circumvent the problem of sunset/sunrise effects, it might be advisable to choose a better indicator than the median and suggestions are welcome.
-<sub><a href="#table-of-contents">(back)</a></sub></p>
+<sub><a href="#description-of-the-dashboard">(back)</a></sub></p>
 
 <h3 id="o3strato-and-no2strato"><em>o3strato</em> and <em>no2strato</em></h3>
 
 <ul>
   <li>AM and PM VCD without indication of monthly median.
-<sub><a href="#table-of-contents">(back)</a></sub></li>
+<sub><a href="#description-of-the-dashboard">(back)</a></sub></li>
 </ul>
 
 <h3 id="tropo"><em>tropo</em></h3>
@@ -221,7 +221,7 @@ body {
   <li>mean number of elevation angles per scan (with median - 3 std)</li>
   <li>mean broken cloud flag per day (0 is no broken clouds, 1 is broken clouds, so the closer to 0, the more unflagged scans)</li>
   <li>for each window, one plot displaying mean mmf, mapa and overall_qa flag.
-<sub><a href="#table-of-contents">(back)</a></sub></li>
+<sub><a href="#description-of-the-dashboard">(back)</a></sub></li>
 </ul>
 
 <h2 id="daily-module-file">Daily module file</h2>
@@ -239,7 +239,7 @@ body {
      without having to go back to the monthly overview page.</li>
   <li>if a plot shows more than one line (e.g. AM and PM, or measured and simulated, or apriori and profile), the 
     lines can be toggled via a click on the legend
-<sub><a href="#table-of-contents">(back)</a></sub></li>
+<sub><a href="#description-of-the-dashboard">(back)</a></sub></li>
 </ul>
 
 <h3 id="l1-1">L1</h3>
@@ -259,7 +259,7 @@ body {
     </ul>
   </li>
   <li>note the log/ lin tabs in the upper left corner of each plot.
-<sub><a href="#table-of-contents">(back)</a></sub></li>
+<sub><a href="#description-of-the-dashboard">(back)</a></sub></li>
 </ul>
 
 <h3 id="qdoas"><em>qdoas</em></h3>
@@ -280,7 +280,7 @@ body {
   <li>QA (0 ok, 1 failed)</li>
   <li>vertical column density (VCD) including error bars</li>
   <li>measured SCD including error bars, as function of solar zenith angle (green for AM, red for PM, as indicated in the legend)
-<sub><a href="#table-of-contents">(back)</a></sub></li>
+<sub><a href="#description-of-the-dashboard">(back)</a></sub></li>
 </ul>
 
 <h3 id="no2strato"><em>no2strato</em></h3>
@@ -300,7 +300,7 @@ body {
     <ul>
       <li>profiles: a-priori (green) and retrieved (red)</li>
       <li>measured (green) and simulated (red) slant column densities (SCD), the former including error bars.
-<sub><a href="#table-of-contents">(back)</a></sub></li>
+<sub><a href="#description-of-the-dashboard">(back)</a></sub></li>
     </ul>
   </li>
 </ul>
@@ -327,7 +327,7 @@ body {
   <li>the color coding, similar to the L1 daily plots, is indicated in the header, mapa has circles, mmf has crosses, each three different colors to indicate the flagging condition.</li>
   <li>on the right, one can de-select either of the two codes (mapa, mmf) in each set of two rows.</li>
   <li>if two or more trace gases use the same o4 window for its base aerosol retrieval, the aerosol retrieval row is duplicated and shown after each of the trace gases.
-<sub><a href="#table-of-contents">(back)</a></sub></li>
+<sub><a href="#description-of-the-dashboard">(back)</a></sub></li>
 </ul>
  </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
