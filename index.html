@@ -81,7 +81,7 @@ body {
     <div class="container-lg px-3 my-5 markdown-body">      
       <h1 id="description-of-the-dashboard">Description of the FRM4DOAS dashboard</h1>
 
-<h2 id="start-page">start page</h2>
+<h2 id="start-page">Start page</h2>
 <p>This is the start page view, showing all instruments currently included in the processing:</p>
 
 <p><img src="https://user-images.githubusercontent.com/38353016/204289387-a7efd522-5fde-41d0-a1d6-9037bfbadccd.png" alt="dashboard starting page" /></p>
@@ -90,11 +90,11 @@ body {
   <li>Each image consists of 3 – 6 horizontal blocks, each representing a module:
     <ul>
       <li>the first will always be <em>L1</em></li>
-      <li>the second (and maybe third) will be <em>qdoas</em>, <em>qdoas_s</em> is the <em>qdoas</em> analysis preceding the <em>o3total</em> and <em>no2strato</em> processing, <em>qdoas_m</em> is the <em>qdoas</em> processing preceeding the <em>tropo</em> processing. Depending on which processing is active for the station, one or both <em>qdoas</em> are displayed</li>
+      <li>the second (and maybe third) will be <em>qdoas</em>, <em>qdoas_s</em> is the <em>qdoas</em> analysis preceding the <em>o3total</em> and <em>no2strato</em> processings, <em>qdoas_m</em> is the <em>qdoas</em> processing preceeding the <em>tropo</em> processing. Depending on which processing is active for the station, one or both <em>qdoas</em> are displayed</li>
       <li>the following rows represent <em>tropo</em>, <em>o3total</em>, <em>no2strato</em>, depending on the station</li>
     </ul>
   </li>
-  <li>While not very well visible in the overview page, each such block is build up of 28 columns and three rows, each square beeing either red, green or white.</li>
+  <li>While not very well visible in the overview page, each such block is built up of 28 columns and three rows, each square beeing either red, green or white.</li>
   <li>The rows will be described later, each column is a day, the right most column is “yesterday”.</li>
   <li>The last column (so “yesterday”) of each instrument determines the color of the station and instrument name, red means something is not quite allright, green means all is ok.</li>
   <li>The last column can be white: there is a certain level1 file receiving delay, y, allowed for each station; if no level1 file was received in the last x days, all last min(x, y) columns are colored white and the color of the header is taken from the latest file that was received if this is within y, otherwise it is red. For example, there are missing files in both of the Uccle instruments, but they are both green, because the number of missing files x is smaller than the allowed delay y, and the last processed file resulted in no problems. However, Bremen 1673_2 also has missing files and although the number of missing files x is also lower than the number of allowed files y, the header is red, because the last “legal” file had some problem.</li>
@@ -102,23 +102,23 @@ body {
 <sub><a href="#table-of-contents">(back)</a></sub></li>
 </ul>
 
-<h2 id="instrument-overview-page">instrument overview page</h2>
+<h2 id="instrument-overview-page">Instrument overview page</h2>
 
 <p>This is the instrument overview page for an instrument with only tropo processing:</p>
 <p><img src="https://user-images.githubusercontent.com/38353016/204289452-5bd95469-1122-4dea-972a-bffae66eded5.png" alt="instrument overview page" /></p>
 <p>The station overview page has two elements:</p>
 <ul>
   <li>a matrix overview showing each module, see below</li>
-  <li>an area (light red background) showing checks on qdoas that showed a problem (errorcodes)</li>
+  <li>an area (light red background) showing checks on qdoas that showed a problem (error codes)</li>
 </ul>
 <p>In the matrix overview, each module, here <em>L1</em>, <em>qdoas_m</em> and <em>tropo</em>, consists of three rows:</p>
 <ol>
   <li>number of files for the indicated day</li>
   <li>number of observations for the indicated day:
     <ul>
-      <li>for <em>L1</em>, this indicates the total measurement number</li>
+      <li>for <em>L1</em>, this indicates the total number of measurements</li>
       <li>for <em>qdoas</em>, this indicates the total number of measurements processed with <em>qdoas</em></li>
-      <li>for <em>o3total</em> or <em>no2strato</em>,  there are two numbers, indicating the number of measurements used individually for AM and PM processing</li>
+      <li>for <em>o3total</em> or <em>no2strato</em>,  there are two numbers, indicating the number of measurements used individually for AM and PM processings</li>
       <li>for <em>tropo</em>, this indicates the number of scans</li>
     </ul>
   </li>
@@ -126,7 +126,7 @@ body {
     <ul>
       <li>for <em>L1</em>, this is the time difference between the calculated solar noon at the station’s location and the time of the measurement with the lowest solar zenith angle. If this is larger than 10 min, this will cause this box to appear red.</li>
       <li>for <em>qdoas_m</em> or <em>qdoas_s</em>, different variables are checked and tested whether or not they are within the median ± 3 std. If any of the variables currently checked are outside this region, an error code is produced and a list of occured errors can be found below the matrix overview plot in the light red area. Please see Section <a href="#qdoas_m-and-qdoas_s">details on qdoas checks</a> for more info.</li>
-      <li>neither of the modules producing level2 files (<em>tropo</em>, <em>o3strato</em> or <em>no2strato</em>) fills the “checks” row at the moment, therefore, the row is blanc.</li>
+      <li>neither of the modules producing level2 files (<em>tropo</em>, <em>o3strato</em> or <em>no2strato</em>) fills the “checks” row at the moment, therefore, the row is blank.</li>
     </ul>
   </li>
 </ol>
@@ -140,9 +140,10 @@ body {
 <p>If there are four or more modules (i.e. for any station that does not only have <em>tropo</em> processing, or not only <em>no2strato</em> processing, the matrix overview part is scrollable unless you have a gigantic screen. If needed, the area indicating the error codes is also scrollable.
 <sub><a href="#table-of-contents">(back)</a></sub></p>
 
-<h2 id="monthly-module-overview-page">monthly module overview page</h2>
+<h2 id="monthly-module-overview-page">Monthly module overview page</h2>
 
-<p>The shown variables on the monthly overview page depend on the module in question. As an example, I show here the start of the <em>qdoas_m</em> page from Uccle.</p>
+<p>The shown variables on the monthly overview page depend on the module in question. As an example, I show here
+  the start of the <em>qdoas_m</em> page from Uccle.</p>
 
 <p><img src="https://user-images.githubusercontent.com/38353016/204289512-8023e1c7-e70b-49cf-933a-3e8214bdcde5.png" alt="monthly module overview page" /></p>
 
@@ -151,8 +152,8 @@ body {
 <ul>
   <li>Shown are always the last 28 days, whether or not they are present. If they are missing, they are not shown.</li>
   <li>The first row always shows a bar plot of the number of files. This should be exactly one.</li>
-  <li>The second plot always shows the number of measurements and indicated in there is the “median-3 std” line as a black line (black and red lines in the case of <em>no2strato</em> or <em>o3total</em>, the former indicating am, the latter pm). As mentioned above, in case of <em>L1</em>, <em>qdoas_m</em> or <em>qdoas_s</em>, this is the number of measurements. In case of <em>tropo</em>, this is the number of scans and in case of <em>no2strato</em> and <em>o3total</em> it is the number of measurements used for the am and pm retrieval, respectively.</li>
-  <li>all but the first plot have the following plotting tools available (However, if your screen is very small, you might not be able to see all the tools):</li>
+  <li>The second plot always shows the number of measurements and indicated in there is the “median-3 std” line as a black line (black and red lines in the case of <em>no2strato</em> or <em>o3total</em>, the former indicating AM, the latter PM). As mentioned above, in case of <em>L1</em>, <em>qdoas_m</em> or <em>qdoas_s</em>, this is the number of measurements. In case of <em>tropo</em>, this is the number of scans and in case of <em>no2strato</em> and <em>o3total</em> it is the number of measurements used for the AM and PM retrievals, respectively.</li>
+  <li>all but the first plot have the following plotting tools available (however, if your screen is very small, you might not be able to see all the tools):</li>
 </ul>
 
 <table>
@@ -182,16 +183,18 @@ body {
 <h3 id="l1"><em>L1</em></h3>
 
 <ul>
-  <li>local solar noon and time of the measurement having the smallest solar zenith angle. Also indicated are the ± 10 min lines around the calculated solar noon.</li>
+  <li>local solar noon and time of the measurement having the smallest solar zenith angle. Also indicated are
+    the ± 10 min lines around the calculated solar noon.</li>
   <li>solar zenith angle of the measurement with the lowest solar zenith angle</li>
-  <li>(daily) median of the relative intensity (wavelength mean of (radiance)/exposure time) and also indicated is the monthly median of the daily medians.</li>
+  <li>(daily) median of the relative intensity (wavelength mean of (radiance)/exposure time) and also indicated
+    is the monthly median of the daily medians.</li>
   <li>(daily) maximum radiance with monthly median of this
 <sub><a href="#table-of-contents">(back)</a></sub></li>
 </ul>
 
 <h3 id="qdoas_m-and-qdoas_s"><em>qdoas_m</em> and <em>qdoas_s</em></h3>
 
-<p>All monthly overview plots are shown for each window in a different color in the same plot, according to the legend. The legend is clickable to toggle the corresponding window, however, the plots are not inter-connected, so toggling one plot, will not hide the same window in another plot, but panning and zooming (in time) will act on all plots. While the first two should be the same in all windows since they concern the calibartion, they are still plotted for each window.</p>
+<p>All monthly overview plots are shown for each window in a different color in the same plot, according to the legend. The legend is clickable to toggle the corresponding window, however, the plots are not inter-connected, so toggling one plot, will not hide the same window in another plot, but panning and zooming (in time) will act on all plots. While the first two should be the same in all windows since they concern the calibration, they are still plotted for each window.</p>
 
 <ul>
   <li>median of slit function parameter (with monthly median ±3 std ranges)</li>
@@ -208,7 +211,7 @@ body {
 <h3 id="o3strato-and-no2strato"><em>o3strato</em> and <em>no2strato</em></h3>
 
 <ul>
-  <li>am and pm VCD without indication of monthly median.
+  <li>AM and PM VCD without indication of monthly median.
 <sub><a href="#table-of-contents">(back)</a></sub></li>
 </ul>
 
@@ -221,18 +224,21 @@ body {
 <sub><a href="#table-of-contents">(back)</a></sub></li>
 </ul>
 
-<h2 id="daily-module-file">daily module file</h2>
+<h2 id="daily-module-file">Daily module file</h2>
 
 <p>Mostly, the same parameters are displayed as for the <a href="#monthly-module-overview-page">monthly overview</a> files. Some comments:</p>
 
 <ul>
   <li>at the top, the name (and path, only internally due to security regulations) of the log file is indicated.</li>
-  <li>just below, the name of the file which content is displayed, is indicated</li>
-  <li>No mean or median lines are included in the plots.</li>
-  <li>For <em>no2strato</em> and <em>o3strato</em>, AM and PM plots are both present.</li>
-  <li>most plots have a <em>lin</em> and a <em>log</em> tab (upper left corner, if present) which changes one or both of the axes between linear and log, where it makes sense.</li>
-  <li>at the top, one can go directly to the previous or next day (buttons in the gray sticky header), without having to go back to the monthly overview page.</li>
-  <li>if a plot shows more than one line (e.g. AM and PM, or measured and simulated, or apriori and profile), the lines can be toggled via a click on the legend
+  <li>just below, the name of the file which content is displayed, is indicated.</li>
+  <li>no mean or median lines are included in the plots.</li>
+  <li>for <em>no2strato</em> and <em>o3strato</em>, AM and PM plots are both present.</li>
+  <li>most plots have a <em>lin</em> and a <em>log</em> tab (upper left corner, if present) which changes one or both of
+    the axes between linear and log, where it makes sense.</li>
+  <li>at the top, one can go directly to the previous or next day (buttons in the gray sticky header),
+     without having to go back to the monthly overview page.</li>
+  <li>if a plot shows more than one line (e.g. AM and PM, or measured and simulated, or apriori and profile), the 
+    lines can be toggled via a click on the legend
 <sub><a href="#table-of-contents">(back)</a></sub></li>
 </ul>
 
@@ -241,13 +247,14 @@ body {
 <ul>
   <li><em>L1</em> daily plots might take a while to load</li>
   <li>in the sticky header, the color coding is indicated, each color indicates a certain measurement type.</li>
-  <li>the first panel shows the relative intensity (wavelength mean of intensity over exposure time)</li>
-  <li>second panel shows exposure time</li>
+  <li>the first panel shows the relative intensity (wavelength mean of intensity over exposure time).</li>
+  <li>second panel shows exposure time.</li>
   <li>they offer the possibility to plot each spectrum:
     <ul>
-      <li>the tab tool is activated by default, a click on any measurement in either the relative intensity or exposure time plot, will plot the corresponding spectrum in the lowest panel</li>
-      <li>holding the shift button and clicking on another point, will add another spectrum</li>
-      <li>one can activated the box select tool and then draw a box containing several points right away to plot several spectra.</li>
+      <li>the tab tool is activated by default, a click on any measurement in either the relative intensity
+        or exposure time plot, will plot the corresponding spectrum in the lowest panel.</li>
+      <li>holding the shift button and clicking on another point, will add another spectrum.</li>
+      <li>one can activate the box select tool and then draw a box containing several points right away to plot several spectra.</li>
       <li>a click in an area without any points goes back to the no-measurement-selected view.</li>
     </ul>
   </li>
@@ -270,9 +277,9 @@ body {
 
 <p>3 panels are shown for the <em>o3total</em>:</p>
 <ul>
-  <li>QA (0 ok, 1 fail)</li>
+  <li>QA (0 ok, 1 failed)</li>
   <li>vertical column density (VCD) including error bars</li>
-  <li>measured SCD including error bars, as function of solar zenith angle (green for am, red for pm, as indicated in the legend)
+  <li>measured SCD including error bars, as function of solar zenith angle (green for AM, red for PM, as indicated in the legend)
 <sub><a href="#table-of-contents">(back)</a></sub></li>
 </ul>
 
@@ -309,16 +316,16 @@ body {
       <li>the overall flag for all trace gases retrieved from the measurements of the instrument in question, with color coding according to the legend</li>
     </ul>
   </li>
-  <li>Similar to the <em>L1</em> daily pots, the <em>tropo</em> daily plots offer the posibility to plot more details (corresponding profiles and measured and simulated dscds) when selecting (via activated tab selector or via activatable box select) points in the time series.</li>
+  <li>Similar to the <em>L1</em> daily plots, the <em>tropo</em> daily plots offer the posibility to plot more details (corresponding profiles and measured and simulated dscds) when selecting (via activated tab selector or via activatable box select) points in the time series.</li>
   <li>each row (they come in pairs of two: one trace gas row followed by the corresponding o4 window and aerosol retrieval) following the flag panel, consists of:
     <ul>
       <li>a time series of the integrated quantity (VCD or AOD) (left)</li>
       <li>the retrieved profile (if a measurement or measurements are selected) (middle)</li>
-      <li>measured and simulated dscs (right)</li>
+      <li>measured and simulated dscds (right)</li>
     </ul>
   </li>
   <li>the color coding, similar to the L1 daily plots, is indicated in the header, mapa has circles, mmf has crosses, each three different colors to indicate the flagging condition.</li>
-  <li>on the right, one can de-select either of the two codes (mapa, mmf) in each set of two rows</li>
+  <li>on the right, one can de-select either of the two codes (mapa, mmf) in each set of two rows.</li>
   <li>if two or more trace gases use the same o4 window for its base aerosol retrieval, the aerosol retrieval row is duplicated and shown after each of the trace gases.
 <sub><a href="#table-of-contents">(back)</a></sub></li>
 </ul>
