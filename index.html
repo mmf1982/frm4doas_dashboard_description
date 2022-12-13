@@ -50,7 +50,7 @@
     <li>The rows will be described later, each column is a day, the right most column is “yesterday”.</li>
     <li>The last column (so “yesterday”) of each instrument determines the color of the station and instrument name, red means something is not quite allright, green means all is ok.</li>
     <li>The last column can be white: there is a certain level1 file receiving delay, y, allowed for each station; if no level1 file was received in the last x days, all last min(x, y) columns are colored white and the color of the header is taken from the latest file that was received if this is within y, otherwise it is red. For example, there are missing files in both of the Uccle instruments, but they are both green, because the number of missing files x is smaller than the allowed delay y, and the last processed file resulted in no problems. However, Bremen 1673_2 also has missing files and although the number of missing files x is also lower than the number of allowed files y, the header is red, because the last “legal” file had some problem.</li>
-    <li>Each image is a link to the respective instrument overview page, e.g. clicking on Uccle 1689_2 brings you to the <a href="#instrument-overview-page">instrument overview page</a>
+    <li>Each image is a link to the respective instrument overview page, e.g. clicking on Uccle 1689_2 brings you to the <a href="#instrument-overview-page">monthly instrument overview page</a>
     <sub><a href="#description-of-the-dashboard">(back)</a></sub></li>
     </ul>
 <h2 id="instrument-overview-page">Monthly instrument overview page</h2>
@@ -61,10 +61,10 @@
     <li>a matrix overview showing each module, see below</li>
     <li>an area (light red background) showing checks on qdoas that showed a problem (error codes)</li>
     </ul>
-    <p>In the matrix overview, each module, here <em>L1</em>, <em>qdoas_m</em> and <em>tropo</em>, consists of three rows:</p>
+    <p>In the matrix overview, each module, here <em>L1</em>, <em>qdoas_s</em>, <em>qdoas_m</em>, <em>tropo</em>, <em>o3total</em> and <em>no2strato</em>, consists of three rows:</p>
     <ol>
-    <li>number of files for the indicated day</li>
-    <li>number of observations for the indicated day:
+        <li><em>files</em> number of files for the indicated day</li>
+        <li><em>measurements</em> number of observations for the indicated day:
         <ul>
         <li>for <em>L1</em>, this indicates the total number of measurements</li>
         <li>for <em>qdoas</em>, this indicates the total number of measurements processed with <em>qdoas</em></li>
@@ -72,7 +72,7 @@
         <li>for <em>tropo</em>, this indicates the number of scans</li>
         </ul>
     </li>
-    <li>short info on module specific checks:
+        <li><em>checks</em> short info on module specific checks:
         <ul>
         <li>for <em>L1</em>, this is the time difference between the calculated solar noon at the station’s location and the time of the measurement with the lowest solar zenith angle. If this is larger than 10 min, this will cause this box to appear red.</li>
         <li>for <em>qdoas_m</em> or <em>qdoas_s</em>, different variables are checked and tested whether or not they are within the median ± 3 std. If any of the variables currently checked are outside this region, an error code is produced and a list of occured errors can be found below the matrix overview plot in the light red area. Please see Section <a href="#qdoas_m-and-qdoas_s">details on qdoas checks</a> for more info.</li>
@@ -85,7 +85,7 @@
     <li>following the link to the <a href="#monthly-module-overview-page">monthly module overview page</a> for the corresponding module by click the green link, here <em>L1</em>, <em>qdoas_m</em> or <em>tropo</em>, in the header of each section.</li>
     <li>open a <a href="#daily-module-file">daily module page</a> for the corresponding instrument by clicking on corresponding day column in the corresponding module block.</li>
     </ul>
-    <p>If there are four or more modules (i.e. for any station that does not only have <em>tropo</em> processing, or not only <em>no2strato</em> processing, the matrix overview part is scrollable unless you have a gigantic screen. If needed, the area indicating the error codes is also scrollable.
+    <p>If there are four or more modules (i.e. for any station that does not only have <em>tropo</em> processing, or not only <em>no2strato</em> processing, the matrix overview part might include scroll bars if you have a small screen or low screen resolution. If needed, the area indicating the error codes is also scrollable.
     <sub><a href="#description-of-the-dashboard">(back)</a></sub></p>
 <h2 id="monthly-module-overview-page">Monthly module overview page</h2>
     <p>The shown variables on the monthly overview page depend on the module in question. As an example, I show here
@@ -163,6 +163,7 @@
         without having to go back to the monthly overview page.</li>
     <li>if a plot shows more than one line (e.g. AM and PM, or measured and simulated, or apriori and profile), the 
         lines can be toggled via a click on the legend
+    <li>in case you wonder about the url: the importan bit of the path is the index, the date is only included for convenience and is not processed. (This means that if you want to go manually from 42_2022-11-28 to Nov, 18th, you can just change the 42 to a 32, no need to change 28 to 18).    
     <sub><a href="#description-of-the-dashboard">(back)</a></sub></li>
     </ul>
 <h3 id="l1-1">L1</h3>
@@ -191,7 +192,7 @@
     <li>the other panels show the same parameters described in the <a href="#monthly-module-overview-page">monthly overview pages</a>, simply without taking the daily median.  <sub><a href="#description-of-the-dashboard">(back)</a></sub></li>
     </ul>
 <h3 id="o3total"><em>o3total</em></h3>
-    <p><img src="https://user-images.githubusercontent.com/38353016/204289721-b93046cb-e0ac-40cb-be7b-32ea67c21053.png" alt="o3 total" /></p>
+    <p><img src="o3total_daily.png" alt="o3 total" /></p>
     <p>3 panels are shown for the <em>o3total</em>:</p>
     <ul>
     <li>QA (0 ok, 1 failed)</li>
@@ -201,7 +202,7 @@
     </ul>
 <h3 id="no2strato"><em>no2strato</em></h3>
     <p><img src="no2strato_daily.png" alt="no2strato" /></p>
-    <p>5 panels are shown for <em>no2strato</em>:</p>
+    <p>7 panels (sometimes 5 if there are not AM and PM for a day) are shown for <em>no2strato</em>:</p>
     <ul>
     <li>first line:
         <ul>
